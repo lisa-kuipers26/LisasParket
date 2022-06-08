@@ -1,3 +1,4 @@
+
 function(path, ziekte){
   read_df <- read.csv(path, skip=11) %>% as.data.frame
   col_nam <- colnames(read_df)
