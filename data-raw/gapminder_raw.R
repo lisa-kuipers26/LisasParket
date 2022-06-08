@@ -2,7 +2,7 @@ library(dslabs)
 library(tidyverse)
 
 #filter op alleen nederland tussen bepaalde jaren
-gapminder_netherlands <- gapminder %>% select("country","year","population","gdp","infant_mortality","life_expectancy","fertility") %>%
+gapminder_netherlands <- ?gapminder %>% select("country","year","population","gdp","infant_mortality","life_expectancy","fertility") %>%
   filter(year %in% (2002:2011),
          country=="Netherlands")
 
