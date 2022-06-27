@@ -1,9 +1,9 @@
 #' Function for visulaising covid cases and deaths
 #'
-#' @param dataset filtered datset with covid data
-#' @param condition choose out of cases or deaths
+#' @param dataset Filtered dataset with covid data
+#' @param condition Choose cases or deaths
 #'
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @import ggplot2
 #'
 #' @return A plot with date range on x-axis and amount of deaths/cases on y axis

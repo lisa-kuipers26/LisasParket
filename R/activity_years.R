@@ -1,14 +1,14 @@
-#' Visualise google search activity over the course of several years for different subjects
+#' Visualize google search activity over the course of several years for different diseases
 #'
 #'
 #'
 #' @param dataset Dataset including multiple years, month and certain activities
-#' @param name What disease you want to visualise
+#' @param name What disease you want to visualize
 #'
-#' @import magrittr
+#' @importFrom magrittr %>%
 #' @import ggplot2
 #' @import RColorBrewer
-#' @import dplyr
+#' @importFrom dplyr filter
 #'
 #' @return A plot
 #' @export

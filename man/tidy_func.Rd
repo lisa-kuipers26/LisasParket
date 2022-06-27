@@ -17,3 +17,13 @@ A tidy dataset
 \description{
 Function used for making datasets tidy and splitting date and adding disease to table
 }
+\examples{
+test <- c(rep(c(" , , , "), 11),"Date,a,b,c","2002-12-29,1,2,3", "2003-01-05,4,5,6",
+"2003-01-12,7,8,9")
+
+tf <-tempfile()
+writeLines(test,tf)
+tidy_func(tf,"dengue")
+unlink(tf)
+
+}

@@ -1,17 +1,17 @@
-#' Summarises means of variables of  population, GDP from gapminder and activity life expectancy from the google dataset an dmake a plot
+#' Plots with means of variables of  population, GDP from gapminder and activity
 #'
 #' @param dataset all_data dataset
-#' @param year year you want data about
-#' @param name column/disease you want the mean of
+#' @param year Year you want data about
+#' @param name Column/disease you want to know the mean activity of
 #'
-#' @return A summarised dataset
+#' @return A stacked plot comparing population, gdp and activity
 #'
 #' @export
 #'
-#' @import  magrittr
+#' @importFrom  magrittr %>%
 #' @import  ggplot2
-#' @import  gridExtra
-#' @import  dplyr
+#' @importFrom  gridExtra grid.arrange
+#' @importFrom  dplyr summarise group_by filter
 #'
 #' @examples
 #' dataset <- data.frame(year=(2002:2013),

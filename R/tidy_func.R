@@ -2,17 +2,24 @@
 #' Function used for making datasets tidy and splitting date and adding disease to table
 #'
 #' @param path path to file
-#' @param name disease choosen to make tidy
+#' @param name Disease choosen to make tidy
 #'
-#' @import dplyr
-#' @import tidyr
+#' @importFrom magrittr %>%
+#' @importFrom dplyr mutate
+#' @importFrom tidyr pivot_longer separate
 #' @importFrom utils read.csv
 #'
 #' @return A tidy dataset
 #' @export
 #'
 #' @examples
+#' test <- c(rep(c(" , , , "), 11),"Date,a,b,c","2002-12-29,1,2,3", "2003-01-05,4,5,6",
+#' "2003-01-12,7,8,9")
 #'
+#' tf <-tempfile()
+#' writeLines(test,tf)
+#' tidy_func(tf,"dengue")
+#' unlink(tf)
 #'
 tidy_func <- function(path,name){
   Date <- NULL
