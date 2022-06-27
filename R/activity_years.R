@@ -3,23 +3,33 @@
 #'
 #'
 #' @param dataset Dataset including multiple years, month and certain activities
-#' @param activity What activity you want to visualise
+#' @param name What disease you want to visualise
+#'
 #' @import magrittr
 #' @import ggplot2
 #' @import RColorBrewer
+#' @import dplyr
 #'
 #' @return A plot
 #' @export
 #'
 #' @examples
 #'
-#' dataset <- data.frame(year=(2002:2013),month=(1:12),activity1=(12:1),activity2=(24:35))
-#' activity_years(dataset,"activity1")
-#' activity_years(dataset,"activity2")
+#' dataset <- data.frame(year=(2002:2013),
+#'                       month=(1:12),
+#'                       activity=(12:1),
+#'                       disease=(rep(c("flu","dengue"),times=6)))
+#' activity_years_func(dataset,"flu")
+#' activity_years_func(dataset,"dengue")
 
-activity_years <- function(dataset,activity){
-  year<- month <- NULL
-  dataset %>% ggplot(aes(x=month,y=dataset[[activity]], group=year, color=factor(year)))+
+activity_years_func <- function(dataset,name){
+  disease <- NULL
+  month <- NULL
+  activity <- NULL
+  year <- NULL
+
+  dataset %>% filter(disease==name) %>%
+    ggplot(aes(x=month,y=activity, group=year, color=factor(year)))+
     geom_line()+
     scale_x_continuous(name="Month", breaks=(1:12), limits=c(1, 12))+
     scale_color_brewer(palette = "Set1")+

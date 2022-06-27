@@ -11,7 +11,11 @@ RoxygenNote: 7.2.0
 Imports:
     magrittr,
     RColorBrewer,
-    ggplot2
+    ggplot2,
+    gridExtra,
+    dplyr,
+    tidyr,
+    utils
 LazyData: TRUE
 Suggests: 
     knitr,
