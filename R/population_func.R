@@ -8,8 +8,9 @@
 #'
 #' @export
 #'
+#' @import stringr
 #' @importFrom  magrittr %>%
-#' @import  ggplot2
+#' @import  plotly
 #' @importFrom  gridExtra grid.arrange
 #' @importFrom  dplyr summarise group_by filter
 #'
@@ -34,22 +35,26 @@ population_func <- function(dataset,year,name){
   country_data <- dataset %>% filter(year==2008, disease==name) %>%
     group_by(country) %>%
     summarise(mean(activity, na.rm=TRUE), max(population),max(gdp))
-  colnames(country_data) <- c("country","activity","population","gdp")
+  colnames(country_data) <- c("country","activity","population","GDP")
   country_data[order(country_data$population, decreasing=TRUE),]
 
+  plot1 <- plot_ly(data = country_data,
+                   x = ~activity,
+                   y = ~population,
+                   type = 'scatter',
+                   color =~country,
+                   showlegend=FALSE) %>%
+    layout(yaxis = list(title = 'Population'))
+  plot2 <- plot_ly(data = country_data,
+                   x = ~activity,
+                   y = ~GDP,
+                   type = 'scatter',
+                   color =~country,
+                   showlegend=FALSE) %>%
+    layout(xaxis = list(title = 'Activity'),
+           yaxis = list(title = 'GDP'))
 
-  plot1 <- country_data %>% ggplot(aes(x=country, y=population))+
-    geom_col()+
-    theme_minimal()+
-    theme(axis.text.x = element_text(angle = 90,vjust=0.3,hjust=1))
-  plot2 <- country_data %>% ggplot(aes(x=country, y=gdp))+
-    geom_col()+
-    theme_minimal()+
-    theme(axis.text.x = element_text(angle = 90,vjust=0.3,hjust=1))
-  plot3 <- country_data %>% ggplot(aes(x=country, y=activity))+
-    geom_col()+
-    theme_minimal()+
-    theme(axis.text.x = element_text(angle = 90,vjust=0.3,hjust=1))
-
-  grid.arrange(plot1,plot2,plot3)
+  fig <- subplot(plot1,plot2, nrows = 2,titleY = TRUE, shareX = TRUE, titleX = TRUE) %>%
+    layout(title = list(text = paste(str_to_title(name),"search activity tegen populatie en GDP")))
+  fig
 }

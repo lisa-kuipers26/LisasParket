@@ -2,22 +2,22 @@
 % Please edit documentation in R/population_func.R
 \name{population_func}
 \alias{population_func}
-\title{Summarises means of variables of  population, GDP from gapminder and activity life expectancy from the google dataset an dmake a plot}
+\title{Plots with means of variables of  population, GDP from gapminder and activity}
 \usage{
 population_func(dataset, year, name)
 }
 \arguments{
 \item{dataset}{all_data dataset}
 
-\item{year}{year you want data about}
+\item{year}{Year you want data about}
 
-\item{name}{column/disease you want the mean of}
+\item{name}{Column/disease you want to know the mean activity of}
 }
 \value{
-A summarised dataset
+A stacked plot comparing population, gdp and activity
 }
 \description{
-Summarises means of variables of  population, GDP from gapminder and activity life expectancy from the google dataset an dmake a plot
+Plots with means of variables of  population, GDP from gapminder and activity
 }
 \examples{
 dataset <- data.frame(year=(2002:2013),

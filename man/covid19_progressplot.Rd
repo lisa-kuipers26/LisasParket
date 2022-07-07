@@ -7,9 +7,9 @@
 covid19_progressplot(dataset, condition)
 }
 \arguments{
-\item{dataset}{filtered datset with covid data}
+\item{dataset}{Filtered dataset with covid data}
 
-\item{condition}{choose out of cases or deaths}
+\item{condition}{Choose cases or deaths}
 }
 \value{
 A plot with date range on x-axis and amount of deaths/cases on y axis

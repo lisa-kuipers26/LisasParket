@@ -14,7 +14,49 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+# A reproducable package
 
-```{r setup}
+The main focus of this package is to document and save 4 different functions used in my portfolio. This package showcases that it's possible to save your functions and data used in research and being able to call them again to by others to reproduce the results.
+
+## Installing the package
+First install devtools:
+```r
+install.packages("devtools")
+```
+Now you can install the package from github:
+```r
+devtools::install_github("lisa-kuipers26/LisasParket")
+```
+## Using the package
+
+After installing the package you can use it by using the library function to load the package.
+```{r}
 library(LisasParket)
 ```
+### Functions
+The function available in the package are:
+
+`activity_year_func` 
+
+`covid19_progressplot` 
+
+`population_func` 
+
+`tidy_func` 
+
+The functions are very specific to certain research so if you want to check out how to they are used go to [my portfolio](https://lisa-kuipers26.github.io/lisakuipers-portfolio/). Especially the page about databases and the page about parameters.
+
+### Datasets
+To load the dataset included in the package simply use:
+
+```{r}
+data("gapminder_netherlands")
+```
+
+The content of the dataset is as follows:
+
+```{r}
+gapminder_netherlands
+```
+
+

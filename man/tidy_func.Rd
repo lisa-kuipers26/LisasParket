@@ -9,7 +9,7 @@ tidy_func(path, name)
 \arguments{
 \item{path}{path to file}
 
-\item{name}{disease choosen to make tidy}
+\item{name}{Disease choosen to make tidy}
 }
 \value{
 A tidy dataset
